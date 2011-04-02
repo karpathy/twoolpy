@@ -1,0 +1,21 @@
+Twoolpy: 
+
+Twitter Tools using Tweepy in Python. 
+
+To use:
+1. install tweepy
+2. go through their tutorial on how to setup oauth
+3. once you have all of: (consumer key, consumer secret, access key, access secret), write them all to file called 'tconf', one per line
+4. run authest.py to make sure everything is setup right. If yes, some people's names will be printed, or error will result
+
+
+
+
+SCRIPTS:
+
+$ python recommend.py blahblah
+gives recommendations to user 'blahblah' on who to follow, based on their social graph on twitter. It looks for people who are very often followed by blahblah's followers, but who 'blahblah' doesn't follow. 
+
+
+
+
