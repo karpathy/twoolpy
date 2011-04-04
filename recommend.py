@@ -24,6 +24,7 @@ if len(sys.argv)<2:
 else:
     START_USER= sys.argv[1]
 
+#authenticate using OAUTH
 api= authenticate()
 
 #initializations

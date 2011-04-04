@@ -16,6 +16,6 @@ SCRIPTS:
 $ python recommend.py blahblah
 gives recommendations to user 'blahblah' on who to follow, based on their social graph on twitter. It looks for people who are very often followed by blahblah's followers, but who 'blahblah' doesn't follow. 
 
-
-
+$ python userstream.py
+displays tweets in the user timeline, live
 
