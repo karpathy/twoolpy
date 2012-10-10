@@ -60,7 +60,7 @@ while len(network)>0:
             R= limits['remaining_hits']
         except:
             pass
-        print "Waiting to get more API calls... %s" % (`time.localtime()`, )
+        print "Waiting to get more API calls... %s" % (time.asctime(time.localtime(time.time())), )
 
     #explore this user's followers
     try:
@@ -80,9 +80,20 @@ while len(network)>0:
     #keep track of everyone we see, and how many times
     for f in friends: counts[f]= counts.get(f,0)+1 
 
-    print "explored %s at depth %d --Q size: %d. new people found: %d/%d" %(user, depth, len(network), len(novel), len(friends))
+    print "%d: explored %s at depth %d --Q size: %d. new people found: %d/%d" %(i, user, depth, len(network), len(novel), len(friends))
     network.extend([(n, depth+1) for n in novel])
     for p in novel: color[p]= 1 #currently in Q
+    
+    #print some preliminary results to user
+    if i%5==0:
+      mine= [v for (u,v) in graph if u==START_USER]
+      recomm= [(counts[p], p) for p in counts if not p in mine]
+      recomm.sort(reverse=True)
+      
+      # print top 20 best
+      print "Top 20 preliminary progress report:"
+      for (v, p) in recomm[:min(20,len(recomm))]: print "You're not following %s but other %d of your followers are!" % (p, v)
+    
     if WAIT_TIME>0: time.sleep(WAIT_TIME)
 
 #give the recommendations
