@@ -54,7 +54,7 @@ while len(network)>0:
 
     #getting 100 people = 1 API call...
     while R<=FRIENDS_LIMIT/100+1:
-        time.sleep(10)		
+        time.sleep(60) #wait a minute
         try:
             limits= api.rate_limit_status()
             R= limits['remaining_hits']
